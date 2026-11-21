@@ -1,0 +1,39 @@
+/*
+ * Minimal sdkconfig.h for the vendored ESP-IDF FreeRTOS kernel.
+ *
+ * The kernel core source files unconditionally include the ESP-IDF addition
+ * headers, which in turn include "sdkconfig.h".  We do not use Kconfig here;
+ * this file only provides the handful of switches those headers evaluate.
+ */
+#ifndef BAREMETAL_SDKCONFIG_H
+#define BAREMETAL_SDKCONFIG_H
+
+#define CONFIG_IDF_TARGET_LINUX                 0
+#define CONFIG_FREERTOS_NO_AFFINITY             0x7FFFFFFF
+#define CONFIG_FREERTOS_NUMBER_OF_CORES         1
+#define CONFIG_FREERTOS_UNICORE                 1
+#define CONFIG_FREERTOS_HZ                      1000
+#define CONFIG_FREERTOS_MAX_TASK_NAME_LEN       16
+#define CONFIG_FREERTOS_QUEUE_REGISTRY_SIZE     0
+#define CONFIG_FREERTOS_THREAD_LOCAL_STORAGE_POINTERS 0
+#define CONFIG_FREERTOS_TLSP_DELETION_CALLBACKS 0
+#define CONFIG_FREERTOS_ISR_STACKSIZE           1024
+#define CONFIG_FREERTOS_USE_TRACE_FACILITY      0
+#define CONFIG_FREERTOS_ENABLE_BACKWARD_COMPATIBILITY 0
+#define CONFIG_FREERTOS_PLACE_TASK_STACKS_IN_EXT_RAM 0
+#define CONFIG_FREERTOS_USE_IDLE_HOOK           0
+#define CONFIG_FREERTOS_USE_TICK_HOOK           0
+#define CONFIG_FREERTOS_USE_MALLOC_FAILED_HOOK  0
+#define CONFIG_FREERTOS_USE_DAEMON_TASK_STARTUP_HOOK 0
+#define CONFIG_FREERTOS_DEBUG_TASK_PIE_BLACKLIST 0
+#define CONFIG_FREERTOS_PORT_THREAD_SAFE_CLAIM  0
+#define CONFIG_FREERTOS_RUN_TIME_STATS_USING_ESP_TIMER 0
+#define CONFIG_FREERTOS_TASK_FUNCTION_WRAPPER   1
+#define CONFIG_ESP_SYSTEM_HW_STACK_GUARD        0
+#define CONFIG_ESP_TRACE_TRANSPORT_APPTRACE     0
+#define CONFIG_STACK_CHECK_ALL                  0
+#define CONFIG_STACK_CHECK_STRONG               0
+#define CONFIG_COMPILER_OPTIMIZATION_NONE       0
+#define CONFIG_LIBC_NEWLIB                      0
+
+#endif /* BAREMETAL_SDKCONFIG_H */
